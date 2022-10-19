@@ -26,9 +26,9 @@
 @code{
     protected override void OnInitialized()
     {
-        if(!Account.IsSigned && !Navigation.Uri.StartsWith("/login"))
+        if(!Account.IsSigned && !Navigation.Uri.Contains("login"))
         {
-            Navigation.NavigateTo("/login");
+            Navigation.NavigateTo("login");
         }
     }
 }
