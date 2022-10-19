@@ -1,0 +1,30 @@
+﻿@page "/schedule"
+
+@using BlazorCalendar
+@using BlazorCalendar.Models
+
+<CalendarContainer FirstDate=@StartDate DisplayedView="DisplayedView.Monthly" TasksList="TasksList.ToArray()">
+	<MonthlyView  />
+</CalendarContainer>
+
+<div class="d-flex justify-content-between m-4">
+	<button class="btn btn-primary" @onclick=@(_ => StartDate = StartDate.AddMonths(-1))>Туда</button>
+	<button class="btn btn-primary" @onclick=@(_ => StartDate = StartDate.AddMonths(1))>Сюда</button>
+</div>
+
+@code {
+	private List<Tasks> TasksList;
+	private DateTime StartDate { get; set; } = DateTime.Today;
+
+	protected override void OnInitialized()
+	{
+		TasksList = new()
+		{
+			new Tasks { ID = 1, DateStart = DateTime.Today.AddDays(8), DateEnd = DateTime.Today.AddDays(8), Code = "Брекеты", Color = "#19C319", Caption = "Lorem ipsum dolor sit amet" },
+			new Tasks { ID = 2, DateStart = DateTime.Today.AddDays(-3), DateEnd = DateTime.Today.AddDays(-3), Code = "Кариес", Color = "#FFD800", Caption = "Fusce quis purus eu ante" },
+			new Tasks { ID = 3, DateStart = DateTime.Today.AddDays(-6), DateEnd = DateTime.Today.AddDays(-6), Code = "Кариес", Color = "#FFD800" },
+			new Tasks { ID = 4, DateStart = DateTime.Today.AddDays(-11), DateEnd = DateTime.Today.AddDays(-11), Code = "Кариес", Color = "#FFD800", Caption = "Ut sit amet turpis eget" } ,
+			new Tasks { ID = 5, DateStart = DateTime.Today.AddDays(14), DateEnd = DateTime.Today.AddDays(14), Code = "Операция", Color = "#2DD7D7" }
+		};
+	}
+}

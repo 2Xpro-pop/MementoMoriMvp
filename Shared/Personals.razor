@@ -1,0 +1,42 @@
+﻿@page "/personals"
+
+<MudTable Items="dynamics" Hover="true" Breakpoint="Breakpoint.Sm">
+    <HeaderContent>
+        <MudTh>Фио</MudTh>
+        <MudTh>Телефон</MudTh>
+        <MudTh>Зарплата</MudTh>
+        <MudTh>Должность</MudTh>
+        <MudTh>Email</MudTh>
+        <MudTh>Действия</MudTh>
+    </HeaderContent>
+    <RowTemplate>
+        <MudTd DataLabel="Фио">@context.FullName</MudTd>
+        <MudTd DataLabel="Телефон">@context.Phone</MudTd>
+        <MudTd DataLabel="Зарплата">@context.Salary</MudTd>
+        <MudTd DataLabel="Должность">@context.Position</MudTd>
+        <MudTd DataLabel="Email">@context.Email</MudTd>
+        <MudTd> 
+            <MudButton Variant="Variant.Filled" Color="Color.Primary">Редактировать</MudButton>
+            <MudButton Variant="Variant.Filled" Color="Color.Error" OnClick="@(async _ => dynamics.Remove(context))">Удалить</MudButton>
+        </MudTd>
+    </RowTemplate>
+</MudTable>
+
+@code
+{
+    private List<dynamic> dynamics = new()
+    {
+        new { FullName = "Рыбаков Рыба Рыбекович", Phone="+996 771", Salary = "77%", Position = "Доктор", Email = "my@test.com"},
+        new { FullName = "Андрен Рыба Рыбекович", Phone="+996 772", Salary = "32 000com", Position = "Доктор", Email = "lol@test.com"},
+        new { FullName = "Кихим Диди Лолокович", Phone="+996 772", Salary = "83%", Position = "Доктор", Email = "my2@test.com"},
+        new { FullName = "Рыбаков Рыба Рыбекович", Phone="+996 771", Salary = "77%", Position = "Доктор", Email = "my@test.com"},
+        new { FullName = "Андрен Рыба Рыбекович", Phone="+996 772", Salary = "32 000com", Position = "Доктор", Email = "lol@test.com"},
+        new { FullName = "Кихим Диди Лолокович", Phone="+996 772", Salary = "83%", Position = "Доктор", Email = "my2@test.com"},
+        new { FullName = "Рыбаков Рыба Рыбекович", Phone="+996 771", Salary = "77%", Position = "Доктор", Email = "my@test.com"},
+        new { FullName = "Андрен Рыба Рыбекович", Phone="+996 772", Salary = "32 000com", Position = "Доктор", Email = "lol@test.com"},
+        new { FullName = "Кихим Диди Лолокович", Phone="+996 772", Salary = "83%", Position = "Доктор", Email = "my2@test.com"},
+        new { FullName = "Рыбаков Рыба Рыбекович", Phone="+996 771", Salary = "77%", Position = "Доктор", Email = "my@test.com"},
+        new { FullName = "Андрен Рыба Рыбекович", Phone="+996 772", Salary = "32 000com", Position = "Доктор", Email = "lol@test.com"},
+        new { FullName = "Кихим Диди Лолокович", Phone="+996 772", Salary = "83%", Position = "Доктор", Email = "my2@test.com"},
+    };
+}

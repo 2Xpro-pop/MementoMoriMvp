@@ -1,0 +1,10 @@
+﻿@page "/doctor"
+@inject AccountImitatorService Account
+<h3>Фио:Рыбеков Рыба Рыбекович</h3>
+<h3>Зарплата: n% от операций</h3>
+<h3>
+    @(Account.IsManager ? "Вы крутой менеджер!" : Account.IsDirector ? "ВЫ ТУТ САМЫЙ ГЛАВНЫЙ!" : "Здраствуй доктор.")
+</h3>
+@code {
+
+}

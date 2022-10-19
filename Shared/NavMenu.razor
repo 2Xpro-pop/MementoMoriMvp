@@ -1,0 +1,58 @@
+﻿@inject AccountImitatorService Account
+
+<div class="top-row ps-3 navbar navbar-dark">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="">MementoMoriMvp</a>
+        <button title="Navigation menu" class="navbar-toggler" @onclick="ToggleNavMenu">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+    </div>
+</div>
+
+<div class="@NavMenuCssClass" @onclick="ToggleNavMenu">
+    <nav class="flex-column">
+        <div class="nav-item px-3">
+            <NavLink class="nav-link" href="" Match="NavLinkMatch.All">
+                <span class="oi oi-home" aria-hidden="true"></span> Home
+            </NavLink>
+        </div>
+        @if (Account.IsDoctor)
+        {
+            @NavLink(new { Href = "/schedule", Text = "Расписание", Icon = "oi-calendar"})
+            @NavLink(new { Href = "/doctor", Text = "Профиль", Icon = "oi-person"})
+        }
+        @if (Account.IsManager)
+        {
+            @NavLink(new { Href = "/add-personal", Text = "Добавить персонал", Icon = "oi-people"})
+            @NavLink(new { Href = "/doctor", Text = "Профиль", Icon = "oi-person"})
+            @NavLink(new { Href = "/personals", Text = "Персонал", Icon = "oi-people"})
+        }
+        @if (Account.IsDirector)
+        {
+            @NavLink(new { Href = "/schedule", Text = "Расписание", Icon = "oi-calendar"})
+            @NavLink(new { Href = "/doctor", Text = "Профиль", Icon = "oi-person"})
+            @NavLink(new { Href = "/add-personal", Text = "Добавить персонал", Icon = "oi-people"})
+            @NavLink(new { Href = "/personals", Text = "Персонал", Icon = "oi-people"})
+        }
+    </nav>
+</div>
+
+@code {
+    private bool collapseNavMenu = true;
+
+    private string? NavMenuCssClass => collapseNavMenu ? "collapse" : null;
+
+    RenderFragment<dynamic> NavLink => data => __builder =>
+    {
+        <div class="nav-item px-3">
+            <NavLink class="nav-link" href=@data.Href>
+                <span class="oi @data.Icon" aria-hidden="true"></span> @data.Text
+            </NavLink>
+        </div>
+    };
+
+    private void ToggleNavMenu()
+    {
+        collapseNavMenu = !collapseNavMenu;
+    }
+}

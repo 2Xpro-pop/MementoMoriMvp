@@ -1,0 +1,51 @@
+﻿@page "/login"
+
+@inject AccountImitatorService Account
+@inject NavigationManager Navigation
+
+@if (!Account.IsSigned)
+{
+    <div class="d-flex flex-column align-items-center justify-content-center w-100 vh-100" style="background-image: linear-gradient(180deg, rgb(5, 39, 103) 0%, #3a0647 70%);">
+        
+        <EditForm style="width: 450px; background-color: whitesmoke; padding: 10px; border-radius: 10px" Model=@_logModel OnSubmit="OnSubmit" >
+            <Quote />
+            <label class="d-flex" for="login">
+                <div class="w-50">Логин</div>
+                <InputText @bind-Value="_logModel.Login" id="login"/>
+            </label>
+            <br/>
+            <label class="d-flex" for="password">
+                <div class="w-50">Пароль</div>
+                <InputText @bind-Value="_logModel.Password" id="password"/>
+            </label>
+            <br/>
+            <button class="btn btn-primary" type="submit">Логин</button>
+        </EditForm>
+
+        <h3 class="text-danger m-3">@message</h3>
+
+    </div>
+}
+
+@code {
+    class LogModel
+    {
+        public string? Login { get; set; }
+        public string? Password { get; set; }
+    }
+
+    private LogModel _logModel = new();
+    string message = "";
+
+    private void OnSubmit()
+    {
+        if(Account.SignIn(_logModel.Login, _logModel.Password))
+        {
+            Navigation.NavigateTo("/");
+        }
+        else
+        {
+            message = "Не правильный логин или пароль!";
+        }
+    }
+}

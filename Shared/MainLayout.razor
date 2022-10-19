@@ -1,0 +1,35 @@
+﻿@inherits LayoutComponentBase
+
+@inject AccountImitatorService Account
+@inject NavigationManager Navigation
+
+<div class="page">
+    @if (Account.IsSigned)
+    {
+        <div class="sidebar">
+            <NavMenu />
+        </div>
+
+        <main>
+            <article class="content px-4">
+                @Body
+            </article>
+        </main>
+    }
+    else
+    {
+        @Body
+    }
+</div>
+
+
+@code{
+    protected override void OnInitialized()
+    {
+        if(!Account.IsSigned && !Navigation.Uri.StartsWith("/login"))
+        {
+            Navigation.NavigateTo("/login");
+        }
+    }
+}
+

@@ -1,0 +1,16 @@
+﻿@page "/add-personal"
+
+<h3>Добавить персонал</h3>
+
+<div class="d-flex flex-column">
+    <MudTextField Value=@("Фио") Label="Фио"/>
+    <MudTextField Value=@("Должность") Label="Должность" />
+    <MudSelect T="string" Label="Вид Зарплаты" AnchorOrigin="Origin.BottomCenter">
+        <MudSelectItem Value="@("Процент")" />
+        <MudSelectItem Value="@("Фиксированно")" />
+    </MudSelect>
+    <MudTextField Value=@("Номер") Label="Номер" />
+    <MudTextField Value=@("Email") Label="Email" />
+</div>
+
+<MudButton Color="Color.Primary" Class="w-100 my-3" Variant="Variant.Filled">Добавить</MudButton>
