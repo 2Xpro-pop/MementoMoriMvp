@@ -8,7 +8,7 @@
   "resources": {
     "assembly": {
       "BlazorCalendar.dll": "sha256-nGgtZvEDYAjwa42lVh9RCJIVdrfhw36mZ7B8kJyEGCU=",
-      "MementoMoriMvp.dll": "sha256-QLH7TDLbUDoairW8hPA1HgWF8EiGGnG9XXtIJe3bNVo=",
+      "MementoMoriMvp.dll": "sha256-iAY+SQT0gw8\/naaOFLK7DtA6wFlTmeWwH+o\/liqBeN8=",
       "Microsoft.AspNetCore.Components.dll": "sha256-sW9hLl2+cZI\/TN4AySSlJjLhQ71j9hlM6fLNXSDmk6A=",
       "Microsoft.AspNetCore.Components.Forms.dll": "sha256-9K99kFAAa6SHJdYfsQg0fLSrBSItJums\/Qy+8s7vHnk=",
       "Microsoft.AspNetCore.Components.Web.dll": "sha256-RHU5oS8SD4\/Vj\/2pis+EMFq4My3GmSFergc2vY6FGBY=",
