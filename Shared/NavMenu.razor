@@ -18,21 +18,21 @@
         </div>
         @if (Account.IsDoctor)
         {
-            @NavLink(new { Href = "/schedule", Text = "Расписание", Icon = "oi-calendar"})
-            @NavLink(new { Href = "/doctor", Text = "Профиль", Icon = "oi-person"})
+            @NavLink(new { Href = "./schedule", Text = "Расписание", Icon = "oi-calendar"})
+            @NavLink(new { Href = "./doctor", Text = "Профиль", Icon = "oi-person"})
         }
         @if (Account.IsManager)
         {
-            @NavLink(new { Href = "/add-personal", Text = "Добавить персонал", Icon = "oi-people"})
-            @NavLink(new { Href = "/doctor", Text = "Профиль", Icon = "oi-person"})
-            @NavLink(new { Href = "/personals", Text = "Персонал", Icon = "oi-people"})
+            @NavLink(new { Href = "./add-personal", Text = "Добавить персонал", Icon = "oi-people"})
+            @NavLink(new { Href = "./doctor", Text = "Профиль", Icon = "oi-person"})
+            @NavLink(new { Href = "./personals", Text = "Персонал", Icon = "oi-people"})
         }
         @if (Account.IsDirector)
         {
-            @NavLink(new { Href = "/schedule", Text = "Расписание", Icon = "oi-calendar"})
-            @NavLink(new { Href = "/doctor", Text = "Профиль", Icon = "oi-person"})
-            @NavLink(new { Href = "/add-personal", Text = "Добавить персонал", Icon = "oi-people"})
-            @NavLink(new { Href = "/personals", Text = "Персонал", Icon = "oi-people"})
+            @NavLink(new { Href = "./schedule", Text = "Расписание", Icon = "oi-calendar"})
+            @NavLink(new { Href = "./doctor", Text = "Профиль", Icon = "oi-person"})
+            @NavLink(new { Href = "./add-personal", Text = "Добавить персонал", Icon = "oi-people"})
+            @NavLink(new { Href = "./personals", Text = "Персонал", Icon = "oi-people"})
         }
     </nav>
 </div>
